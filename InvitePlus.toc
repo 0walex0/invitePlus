@@ -1,0 +1,10 @@
+
+## Interface: 30300
+## Title: InvitePlus
+## Notes: /invp Аддон для облегчения сбора группы/рейда
+## Author: 0walex0, Кессель
+## Version: 1.1.2
+## SavedVariables: AutoInvitePlusDB
+
+main.lua
+
