@@ -9,7 +9,7 @@
 
 ## 🛠 Установка
 
-1. Скачай архив с аддоном https://github.com/0walex0/invitePlus/releases/tag/latest
+1. Скачай архив с аддоном [invitePlus.zip](https://github.com/0walex0/invitePlus/releases/latest)
 2. Распакуй папку `InvitePlus` в директорию `Interface/AddOns`
 3. Перезапусти игру или используй `/reload`
 
