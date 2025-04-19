@@ -4,6 +4,7 @@
 ## Notes: /invp Аддон для облегчения сбора группы/рейда
 ## Author: 0walex0, Кессель
 ## Version: 1.1.2
+## X-Sirus-Update: https://github.com/0walex0/invitePlus
 ## SavedVariables: AutoInvitePlusDB
 
 main.lua
