@@ -51,7 +51,6 @@ end
 
 
 local function CreateUI()
-
     ui = CreateFrame("Frame", "InvitePlusUI", UIParent, "BasicFrameTemplate")
     ui:SetSize(300, 160)
     ui:SetPoint("CENTER")
@@ -78,7 +77,6 @@ local function CreateUI()
     editBox:SetSize(100, 20)
     editBox:SetPoint("TOPLEFT", label, "BOTTOMLEFT", 0, -5)
     editBox:SetAutoFocus(false)
-    
 
     local raidButton = CreateFrame("Button", nil, ui, "GameMenuButtonTemplate")
     raidButton:SetSize(80, 20)
@@ -101,7 +99,6 @@ local function CreateUI()
             print("|cffffff00[InvitePlus]|r Уже в рейде.")
         end
     end)
-
 
     local applyButton = CreateFrame("Button", nil, ui, "GameMenuButtonTemplate")
     applyButton:SetSize(80, 20)
@@ -140,19 +137,11 @@ local function CreateUI()
     checkEveryone:SetScript("OnClick", function(self)
         InvitePlusDB.allowEveryone = self:GetChecked()
     end)
-
-    SLASH_INVITEPLUS1 = "/invp"
-    SlashCmdList["INVITEPLUS"] = function()
-        if ui:IsShown() then
-            ui:Hide()
-        else
-            ui:Show()
-        end
-    end
 end
 
+
 f:SetScript("OnEvent", function(self, event, arg1, arg2)
-    if event == "ADDON_LOADED" and arg1 == "InvitePlus" then
+    if event == "ADDON_LOADED" and arg1:lower() == "inviteplus" then
         InvitePlusDB = InvitePlusDB or {
             enabled = true,
             triggerWord = "+"
@@ -172,3 +161,19 @@ f:SetScript("OnEvent", function(self, event, arg1, arg2)
         InviteHelper(self, event, msg, author)
     end
 end)
+
+
+-- ✅ Регистрация команды /invp — отдельно и безопасно
+SLASH_INVITEPLUS1 = "/invp"
+SlashCmdList["INVITEPLUS"] = function()
+    if not ui then
+        print("InvitePlus: UI ещё не загружено.")
+        return
+    end
+
+    if ui:IsShown() then
+        ui:Hide()
+    else
+        ui:Show()
+    end
+end
